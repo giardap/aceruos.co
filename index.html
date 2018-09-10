@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html prefix="og: http://ogp.me/ns#">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="Aceruos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aceruos.co/" />
+    <meta property="og:image" content="https://aceruos.co/pfp.png" />
+    <meta property="og:description" content="Aceruos official website." />
+
+    <title>Aceruos's Official Website</title>
+
+    <link rel="icon" href="pfp.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <style>
+        body,
+        html {
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #191919;
+            flex-direction: row;
+            font-family: "Montserrat", sans-serif;
+            overflow: hidden;
+        }
+
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #191919;
+            opacity: 0.9;
+            z-index: -1;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .main .brand {
+            margin-right: 15px;
+        }
+
+        .main .title {
+            font-size: 5em;
+            color: #ddd;
+        }
+
+       /* .main .buttons {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+        }*/
+
+        .main .buttons .btn {
+            background-color: #222;
+            text-decoration: none;
+            color: #eee;
+            /*padding: 18px 16px;*/
+            text-transform: uppercase;
+            font-weight: 200;
+            font-size: 0.78em;
+            /*border-radius: 2px;*/
+            opacity: 0.6;
+            transition: opacity 200ms;
+        }
+
+        .main .buttons .btn:nth-child(even) {
+            margin: 0 10px;
+        }
+
+        .main .buttons .btn:hover {
+            opacity: 1;
+        }
+        a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <!-- <div class="brand">
+            <img src="pfp.png" alt="png lol" class="brand__logo" height="160" width="160" />
+            <br>
+        </div> -->
+        <br>
+        <div class="buttons">
+            <a href="https://github.com/Aceruos" class="btn"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://discord.gg/ARGsCWV" class="btn"><i class="fab fa-discord fa-2x"></i></a>
+            <a href="https://twitter.com/Aceruos" class="btn"><i class="fab fa-twitter fa-2x"></i></a>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
