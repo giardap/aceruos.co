@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Bundle ID Finder</title>
+    <style>
+      div {
+        background-color:lightgray;
+        font-family:Arial;
+        margin:5px;
+        padding:5px;
+        border-style:solid;
+        border-color:transparent;
+        border-radius:15px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    function onload() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    console.log(vars);
+    if(vars.hasOwnProperty('bundles')){
+      document.getElementById('query').value = decodeURIComponent(vars['bundles']);
+      a = $.getJSON("https://itunes.apple.com/search?term=" + vars['bundles'] + "&entity=software&limit=25", function(data) {
+      results = data['results'];
+      var i;
+      console.log(results);
+      for(i=0; i < results.length; i++){
+        var bundle=document.createElement("div");
+        bundle.class = "bundleId";
+        bundle.style.padding = "5px";
+        var gnamp = document.createElement('p');
+        var gnam = document.createElement('a');
+        gnam.href = results[i]['trackViewUrl'];
+        gnam.innerHTML = results[i]['trackCensoredName'];
+        var id = document.createElement('p');
+        id.innerHTML = results[i]['bundleId'];
+        var auth = document.createElement('p');
+        auth.innerHTML = "by " + results[i]['sellerName'];
+        gnamp.appendChild(gnam);
+        bundle.appendChild(gnamp);
+        bundle.appendChild(auth);
+        bundle.appendChild(id);
+        document.body.appendChild(bundle);
+    }
+      
+      });
+    }
+    }
+    </script>
+  </head>
+  <body onload="onload()">
+    <h1>bundles<span style="color:gray">beta</span> - an aceruos utility</h1>
+    <input id="query">
+    <button onclick="window.location.replace('/bundles.html?bundles=' + document.getElementById('query').value)">search id</button>
+  </body>
+</html>
