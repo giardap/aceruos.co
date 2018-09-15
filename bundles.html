@@ -19,7 +19,7 @@
       #query {
         padding:8px;display:inline-block;border:none;border-bottom:1px solid #a9a9a9;
       }
-      #search {
+      .search {
            font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
       font-size: 15px;
       background-color: #EEE;
@@ -107,12 +107,31 @@
       });
     }
     }
+      
+    function swapLayout(){
+      if(document.querySelector('.oneapp').style.display=="block"){
+        var a = document.getElementsByClassName('oneapp');
+        for(var i in a){
+          if (a.hasOwnProperty(i)) {
+            a[i].style.display = "inline-block";
+          }
+        }
+      } else {
+        var a = document.getElementsByClassName('oneapp');
+        for(var i in a){
+          if (a.hasOwnProperty(i)) {
+            a[i].style.display = "block";
+          }
+        }
+        
+      }
+    }
     </script>
   </head>
   <body onload="onload()">
     <h1 style="font-family:'Lato', sans-serif;">bundles - an aceruos bundle id utility</h1>
     <input id="query">
-    <button id="search" onclick="window.location.replace('bundles?bundles=' + document.getElementById('query').value)">search app</button><br><br>
+    <button class="search" onclick="window.location.replace('bundles?bundles=' + document.getElementById('query').value)">search app</button><button class="search" onclick="swapLayout()">layout (alpha)</button><br><br>
     <div id="pap"></div>
     <hr/>
     <p style="font-family:'Lato', sans-serif;">By jack (Yak, saucize) of Aceruos.</p><a href="https://twitter.com/saucize?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @saucize</a>
