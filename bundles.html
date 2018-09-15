@@ -44,7 +44,7 @@
         box-shadow: 0 0 20px #9a9a9a;
         border-radius:15px;
         width: 320px !important;
-        height: 130px !important;
+        height: 23% !important;
         display:inline-block;
         word-wrap: break-word;
         word-break: break-all;
@@ -114,6 +114,8 @@
         for(var i in a){
           if (a.hasOwnProperty(i)) {
             a[i].style.display = "inline-block";
+            a[i].style.margin = "5px";
+            a[i].style.width = "23%";
           }
         }
       } else {
@@ -121,6 +123,8 @@
         for(var i in a){
           if (a.hasOwnProperty(i)) {
             a[i].style.display = "block";
+            a[i].style.margin = "auto";
+            a[i].style.width = "96%";
           }
         }
         
