@@ -54,6 +54,12 @@
       console.log(results);
       for(i=0; i < results.length; i++){
         var bundle=document.createElement("div");
+        var thumbdb=document.createElement("img");
+        thumbdb.src = results[i]['artworkUrl60'];
+        thumbdb.style.width = '20px';
+        thumbdb.style.height = '20px';
+        thumbdb.style.verticalAlign = 'middle';
+        thumbdb.style.padding = '2px';
         bundle.class = "bundleId";
         bundle.style.padding = "5px";
         var gnamp = document.createElement('p');
@@ -64,6 +70,7 @@
         id.innerHTML = results[i]['bundleId'];
         var auth = document.createElement('p');
         auth.innerHTML = "by " + results[i]['sellerName'];
+        gnam.childNodes.addAt(0,thumbdb);
         gnamp.appendChild(gnam);
         bundle.appendChild(gnamp);
         bundle.appendChild(auth);
