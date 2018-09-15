@@ -30,7 +30,7 @@
       #search:hover {
         background-color:#BBB
       }
-      div {
+      .oneapp {
         transition: all 1.3s;
         background-color:white;
         font-family:Arial;
@@ -72,6 +72,7 @@
       var i;
       for(i=0; i < results.length; i++){
         var bundle=document.createElement("div");
+        bundle.className = 'oneapp';
         var thumbdb=document.createElement("img");
         thumbdb.src = results[i]['artworkUrl60'];
         thumbdb.style.width = '20px';
