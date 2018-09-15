@@ -43,7 +43,7 @@
         border-color:transparent;
         box-shadow: 0 0 20px #9a9a9a;
         border-radius:15px;
-        width: 23% !important;
+        width: 23%;
         height: 130px !important;
         display:inline-block;
         word-wrap: break-word;
@@ -109,12 +109,10 @@
     }
       
     function swapLayout(){
-      if(document.querySelector('.oneapp').style.display=="block"){
+      if(document.querySelector('.oneapp').style.width=="96%"){
         var a = document.getElementsByClassName('oneapp');
         for(var i in a){
           if (a.hasOwnProperty(i)) {
-            a[i].style.display = "inline-block";
-            a[i].style.margin = "5px";
             a[i].style.width = "23%";
           }
         }
@@ -122,8 +120,6 @@
         var a = document.getElementsByClassName('oneapp');
         for(var i in a){
           if (a.hasOwnProperty(i)) {
-            a[i].style.display = "block";
-            a[i].style.margin = "auto";
             a[i].style.width = "96%";
           }
         }
