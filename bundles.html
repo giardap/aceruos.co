@@ -110,6 +110,7 @@
       
     function swapLayout(){
       if(document.querySelector('.oneapp').style.width=="96%"){
+        document.getElementById('lytswp').style.backgroundImage = "url('/2_.png')";
         var a = document.getElementsByClassName('oneapp');
         for(var i in a){
           if (a.hasOwnProperty(i)) {
@@ -117,6 +118,7 @@
           }
         }
       } else {
+        document.getElementById('lytswp').style.backgroundImage = "url('/3_.png')";
         var a = document.getElementsByClassName('oneapp');
         for(var i in a){
           if (a.hasOwnProperty(i)) {
@@ -131,7 +133,7 @@
   <body onload="onload()">
     <h1 style="font-family:'Lato', sans-serif;">bundles - an aceruos bundle id utility</h1>
     <input id="query">
-    <button class="search" onclick="window.location.replace('bundles?bundles=' + document.getElementById('query').value)">search app</button><button style="background-size:cover;background-image:url('2_.png');width:37px;height:37px;vertical-align:top;" class="search" onclick="swapLayout()"></button><br><br>
+    <button class="search" onclick="window.location.replace('bundles?bundles=' + document.getElementById('query').value)">search app</button><button style="background-size:cover;background-image:url('2_.png');width:37px;height:37px;vertical-align:top;" id="lytswp" class="search" onclick="swapLayout()"></button><br><br>
     <div id="pap"></div>
     <hr/>
     <p style="font-family:'Lato', sans-serif;">By jack (Yak, saucize) of Aceruos.</p><a href="https://twitter.com/saucize?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @saucize</a>
