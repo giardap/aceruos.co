@@ -94,7 +94,7 @@
         bundle.appendChild(gnamp);
         bundle.appendChild(auth);
         bundle.appendChild(id);
-        document.body.appendChild(bundle);
+        document.getElementById('pap').appendChild(bundle);
     }
       
       });
@@ -106,5 +106,6 @@
     <h1 style="font-family:'Lato', sans-serif;">bundles<span style="color:gray">beta</span> - an aceruos utility</h1>
     <input id="query">
     <button id="search" onclick="window.location.replace('bundles?bundles=' + document.getElementById('query').value)">search id</button><br><br>
+    <div id="pap"></div>
   </body>
 </html>
