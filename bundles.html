@@ -70,7 +70,7 @@
         id.innerHTML = results[i]['bundleId'];
         var auth = document.createElement('p');
         auth.innerHTML = "by " + results[i]['sellerName'];
-        gnam.childNodes.addAt(0,thumbdb);
+        gnam.insertBefore(thumbdb, gnam.childNodes[0]);
         gnamp.appendChild(gnam);
         bundle.appendChild(gnamp);
         bundle.appendChild(auth);
