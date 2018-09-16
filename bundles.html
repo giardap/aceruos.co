@@ -76,7 +76,7 @@
     });
     if(vars.hasOwnProperty('bundles')){
       document.getElementById('query').value = decodeURIComponent(vars['bundles']);
-      a = $.getJSON("https://itunes.apple.com/search?term=" + vars['bundles'] + "&entity=software&limit=25", function(data) {
+      a = $.getJSON("https://itunes.apple.com/search?term=" + vars['bundles'] + "&entity=software&limit=28", function(data) {
       results = data['results'];
       var i;
       for(i=0; i < results.length; i++){
