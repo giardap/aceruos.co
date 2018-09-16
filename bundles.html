@@ -80,6 +80,8 @@
         var bundle=document.createElement("div");
         bundle.className = 'oneapp';
         var thumbdb=document.createElement("img");
+        var imglnk = document.createElement("a");
+        imglnk.href = results[i]['artworkUrl512'];
         thumbdb.src = results[i]['artworkUrl60'];
         thumbdb.style.width = '20px';
         thumbdb.style.height = '20px';
@@ -94,9 +96,12 @@
         gnam.innerHTML = results[i]['trackCensoredName'];
         var id = document.createElement('p');
         id.innerHTML = results[i]['bundleId'];
+        //var genre = document.createElement('p');
+        //genre.innerHTML = "$" + parseInt(results[i]['price']) + " | " + results[i]['primaryGenreName'];
         var auth = document.createElement('p');
         auth.innerHTML = "by " + results[i]['sellerName'];
-        gnam.insertBefore(thumbdb, gnam.childNodes[0]);
+        imglnk.appendChild(thumbdb);
+        gnamp.appendChild(imglnk);
         gnamp.appendChild(gnam);
         bundle.appendChild(gnamp);
         bundle.appendChild(auth);
