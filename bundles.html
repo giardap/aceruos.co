@@ -114,6 +114,16 @@
       
       });
     }
+     
+      document.getElementById('query').addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementsByClassName("search")[0].click();
+  }
+});
     }
       
     function swapLayout(){
@@ -137,15 +147,7 @@
       }
     }
     
-    window.onload = document.getElementById('query').addEventListener("keyup", function(event) {
-  // Cancel the default action, if needed
-  event.preventDefault();
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Trigger the button element with a click
-    document.getElementsByClassName("search")[0].click();
-  }
-});
+    
     </script>
   </head>
   <body onload="onload()"><center>
