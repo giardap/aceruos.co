@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <base target="_blank">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <title>bundles - aceruos</title>
+    <style>
+      input:focus, button:focus, a:focus {
+      outline: none !important;
+      }
+      button:focus {
+        background-color:#a9a9a9;
+      }
+      a {
+        font-weight: bold;
+        text-decoration: none;
+        color: gray;
+      }
+      a:hover {
+        text-shadow: 0 0 20px #9a9a9a;
+        text-decoration:underline;
+      }
+      #query {
+        padding:8px;display:inline-block;border:none;border-bottom:1px solid #a9a9a9;
+      }
+      .search {
+           font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+      font-size: 15px;
+      background-color: #EEE;
+      padding: 10px 20px 10px 20px;
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 0 20px #a9a9a9;
+      transition: all 1.3s;
+      margin: 10px; 
+      }
+      #search:hover {
+        background-color:#BBB
+      }
+      .oneapp {
+        transition: all 1.3s;
+        background-color:white;
+        font-family:Arial;
+        margin:5px;
+        padding:5px;
+        border-style:solid;
+        border-color:transparent;
+        box-shadow: 0 0 20px #9a9a9a;
+        border-radius:15px;
+        width: 23%;
+        height: 130px !important;
+        display:inline-block;
+        word-wrap: break-word;
+        word-break: break-all;
+        vertical-align: top;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      body {
+        font-family:'Lato', sans-serif;
+      }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta property="og:title" content="Aceruos BundlesBeta" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aceruos.co/bundles.html" />
+    <meta property="og:image" content="https://aceruos.co/pfp.png" />
+    <meta property="og:description" content="Bundle ID finder for the App Store" />
+    <link rel="icon" href="https://aceruos.co/pfp.png" type="image/x-icon">
+    <script>
+    function onload() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    if(vars.hasOwnProperty('bundles')){
+      document.getElementById('query').value = decodeURIComponent(vars['bundles']);
+      a = $.getJSON("https://cydia.aceruos.co/" + vars['bundles'] + "?comfy=1&limit=28", function(data) {
+      results = data;
+      var i;
+      if(results.length<=0){
+        document.getElementById('pap').innerHTML = 'no results found';
+      }
+      for(i=0; i < results.length; i++){
+        var bundle=document.createElement("div");
+        bundle.className = 'oneapp';
+        var thumbdb=document.createElement("img");
+        var imglnk = document.createElement("a");
+        imglnk.href = results[i]['icon'];
+        thumbdb.src = results[i]['icon'];
+        thumbdb.style.width = '20px';
+        thumbdb.style.height = '20px';
+        thumbdb.style.verticalAlign = 'middle';
+        thumbdb.style.padding = '2px';
+        thumbdb.style.paddingRight = '8px';
+        bundle.class = "bundleId";
+        bundle.style.padding = "5px";
+        var gnamp = document.createElement('p');
+        var gnam = document.createElement('a');
+        gnam.href = "http://" + results[i]['repo'];
+        gnam.innerHTML = results[i]['name'];
+        var id = document.createElement('p');
+        id.innerHTML = results[i]['id'];
+        var auth = document.createElement('p');
+        if(results[i]['author']==null){auth.innerHTML = "by Unknown";} else {
+        auth.innerHTML = "by " + results[i]['author'];}
+        imglnk.appendChild(thumbdb);
+        gnamp.appendChild(imglnk);
+        gnamp.appendChild(gnam);
+        bundle.appendChild(gnamp);
+        bundle.appendChild(auth);
+        bundle.appendChild(id);
+        document.getElementById('pap').appendChild(bundle);
+    }
+      
+      });
+    }
+     
+      document.getElementById('query').addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementsByClassName("search")[0].click();
+  }
+});
+    }
+      
+    function swapLayout(){
+      if(document.querySelector('.oneapp').style.width=="96%"){
+        document.getElementById('lytswp').style.backgroundImage = "url('/2_.png')";
+        var a = document.getElementsByClassName('oneapp');
+        for(var i in a){
+          if (a.hasOwnProperty(i)) {
+            a[i].style.width = "23%";
+          }
+        }
+      } else {
+        document.getElementById('lytswp').style.backgroundImage = "url('/3_.png')";
+        var a = document.getElementsByClassName('oneapp');
+        for(var i in a){
+          if (a.hasOwnProperty(i)) {
+            a[i].style.width = "96%";
+          }
+        }
+        
+      }
+    }
+    
+    
+    </script>
+  </head>
+  <body onload="onload()"><center>
+    <h1 style="font-family:'Lato', sans-serif;">Tweak Searcher - an aceruos utility</h1>
+    <input id="query" autofocus>
+    <button class="search" onclick="window.location.replace('bundles?bundles=' + document.getElementById('query').value)">search app</button><button style="background-size:cover;background-image:url('2_.png');width:37px;height:37px;vertical-align:top;" id="lytswp" class="search" onclick="swapLayout()"></button><br><br>
+    <div id="pap"></div>
+    <hr/>
+    <p style="font-family:'Lato', sans-serif;">By jack (Yak, saucize) of Aceruos.</p><p style="font-family:'Lato', sans-serif;">API by jack (Yak, saucize) and exofeel of Aceruos.</p><a href="https://twitter.com/saucize?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @saucize</a><a href="https://twitter.com/exofeel_dev?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @exofeel_dev</a><a href="https://twitter.com/aceruos?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @aceruos</a>
+    </center></body>
+</html>
